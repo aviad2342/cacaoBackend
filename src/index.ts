@@ -22,6 +22,7 @@ createConnection().then(connection => {
     app.use(express.static("src"));
     app.use("/images", express.static(path.join("cacaoBackend/src/images")));
     app.use("/assets", express.static(path.join("cacaoBackend/src/assets")));
+    app.use("/assets/audio", express.static(path.join("cacaoBackend/src/assets/audio")));
 
 
     app.use("/user",userRouter);

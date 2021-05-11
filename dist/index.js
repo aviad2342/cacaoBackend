@@ -19,6 +19,7 @@ typeorm_1.createConnection().then(function (connection) {
     app.use(express.static("src"));
     app.use("/images", express.static(path.join("cacaoBackend/src/images")));
     app.use("/assets", express.static(path.join("cacaoBackend/src/assets")));
+    app.use("/assets/audio", express.static(path.join("cacaoBackend/src/assets/audio")));
     app.use("/user", user_1.userRouter);
     app.use("/video", video_1.videoRouter);
     app.use("/image", upload_1.uploadRouter);
