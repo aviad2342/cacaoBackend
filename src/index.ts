@@ -13,7 +13,7 @@ createConnection().then(connection => {
     // create and setup express app
     const app: express.Application = express();
    // the port the express app will listen on
-    const port: string = process.env.PORT || "3000";
+    const port: string = process.env.PORT || "3200";
 
     app.use(cors());
     app.use(express.json());

@@ -12,7 +12,7 @@ typeorm_1.createConnection().then(function (connection) {
     // create and setup express app
     var app = express();
     // the port the express app will listen on
-    var port = process.env.PORT || "3000";
+    var port = process.env.PORT || "3200";
     app.use(cors());
     app.use(express.json());
     app.use(express.urlencoded({ extended: false }));
