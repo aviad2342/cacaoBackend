@@ -15,16 +15,9 @@ createConnection().then(connection => {
    // the port the express app will listen on
     const port: string = process.env.PORT || "3200";
 
-    app.use(cors());
+    app.use(cors({origin: true}));
     app.use(express.json());
     app.use(express.urlencoded({ extended: false }));
-
-    app.use((req, res, next) => {
-      res.setHeader("Access-Control-Allow-Origin", "*");
-      res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-      res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-      next();
-    });
 
     app.use(express.static("src"));
     app.use("/images", express.static(path.join("cacaoBackend/src/images")));
