@@ -16,6 +16,12 @@ typeorm_1.createConnection().then(function (connection) {
     app.use(cors());
     app.use(express.json());
     app.use(express.urlencoded({ extended: false }));
+    app.use(function (req, res, next) {
+        res.setHeader("Access-Control-Allow-Origin", "*");
+        res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+        res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
+        next();
+    });
     app.use(express.static("src"));
     app.use("/images", express.static(path.join("cacaoBackend/src/images")));
     app.use("/assets", express.static(path.join("cacaoBackend/src/assets")));
