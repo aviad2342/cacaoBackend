@@ -8,6 +8,7 @@ var typeorm_1 = require("typeorm");
 var user_1 = require("./routes/user");
 var video_1 = require("./routes/video");
 var upload_1 = require("./routes/upload");
+var auth_1 = require("./routes/auth");
 typeorm_1.createConnection().then(function (connection) {
     // create and setup express app
     var app = express();
@@ -20,11 +21,11 @@ typeorm_1.createConnection().then(function (connection) {
     app.use("/images", express.static(path.join("cacaoBackend/src/images")));
     app.use("/assets", express.static(path.join("cacaoBackend/src/assets")));
     app.use("/assets/audio", express.static(path.join("cacaoBackend/src/assets/audio")));
+    app.use("/auth", auth_1.authRouter);
     app.use("/user", user_1.userRouter);
     app.use("/video", video_1.videoRouter);
     app.use("/image", upload_1.uploadRouter);
     // app.use("/register",registrationRouter);
-    // app.use("/auth",authRouter);
     // app.use("/comment",commentRouter);
     // app.use("/address",addressRouter);
     // app.use("/album",albumRouter);
