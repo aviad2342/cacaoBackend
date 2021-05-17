@@ -6,6 +6,7 @@ import { createConnection } from "typeorm";
 import { userRouter } from "./routes/user";
 import { videoRouter } from "./routes/video";
 import { uploadRouter } from "./routes/upload";
+import { authRouter } from "./routes/auth";
 
 
 createConnection().then(connection => {
@@ -25,11 +26,11 @@ createConnection().then(connection => {
     app.use("/assets/audio", express.static(path.join("cacaoBackend/src/assets/audio")));
 
 
+    app.use("/auth",authRouter);
     app.use("/user",userRouter);
     app.use("/video",videoRouter);
     app.use("/image",uploadRouter);
     // app.use("/register",registrationRouter);
-    // app.use("/auth",authRouter);
     // app.use("/comment",commentRouter);
     // app.use("/address",addressRouter);
     // app.use("/album",albumRouter);
